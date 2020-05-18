@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+  "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+		<!-- 配置数据库 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://120.24.255.145:3306/shop?useUnicode=true&amp;characterEncoding=utf8</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">bambamboo</property>
+		<!-- 配置mysql方言 -->
+		<!-- 一定要设置成5以上 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+		<!-- 是否显示mysql -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 格式化mysql -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- 自动创建mysql表 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+<!-- 		解决只读权限问题 -->
+<!-- 		<property name="checkWriteOperations" value="false" />    -->
+
+		<property name="connection.autocommit">true </property>
+		<!-- 映射关系配置 -->
+		<mapping resource="cn/itcast/shop/user/pojo/User.hbm.xml" />
+
+	</session-factory>
+
+
+
+</hibernate-configuration>
