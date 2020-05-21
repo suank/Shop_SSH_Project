@@ -40,12 +40,24 @@
 		<property name="userService" ref="userService"></property>
 	</bean>
 	
+	<!-- 配置后台登录的Action -->
+	<bean id="adminUserAction" class="cn.itcast.shop.adminuser.action.AdminUserAction" scope="prototype">
+		<property name="adminUserService" ref="adminUserService"/>
+	</bean>
 	<bean id="userService" class="cn.itcast.shop.user.service.UserService" scope="prototype">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
 	
+<!--后台登录的server-->
+	<bean id="adminUserService" class="cn.itcast.shop.adminuser.service.AdminUserService">
+		<property name="adminUserDao" ref="adminUserDao"/>
+	</bean>
 	<bean id="userDao" class="cn.itcast.shop.user.dao.UserDao" scope="prototype">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
+<!--后台登录的dao-->
+	<bean id="adminUserDao" class="cn.itcast.shop.adminuser.dao.AdminUserDao">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
 </beans>

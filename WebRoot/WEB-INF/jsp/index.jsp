@@ -18,12 +18,12 @@
 	</div>
 	<div class="span9">
 <div class="headerAd">
-</div>	
 </div>
-	
+</div>
+
 <!-- 	引入导航 -->
 	<%@ include file="menu.jsp" %>
-	
+
 </div>	
 
 <div class="container index">
