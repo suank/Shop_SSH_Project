@@ -12,6 +12,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import cn.itcast.shop.user.pojo.User;
 public class DaoTest {
 		
+	
 	@Test
 	public void test(){
 		ApplicationContext ac =  new ClassPathXmlApplicationContext("applicationContext.xml");

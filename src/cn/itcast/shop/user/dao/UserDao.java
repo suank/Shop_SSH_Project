@@ -3,7 +3,7 @@ package cn.itcast.shop.user.dao;
 import java.io.Serializable;
 import java.util.List;
 
-
+import org.junit.Test;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 

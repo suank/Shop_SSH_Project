@@ -2,9 +2,10 @@ package cn.itcast.shop.adminuser.dao;
 
 import java.util.List;
 
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import cn.itcast.shop.adminuser.vo.AdminUser;
+import cn.itcast.shop.adminuser.pojo.AdminUser;
 
 public class AdminUserDao extends HibernateDaoSupport{
 

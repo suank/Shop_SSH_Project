@@ -36,9 +36,13 @@
 	</div>
 	
 </div>
+
 <div class="span24">
 	<ul class="mainNav">
-		<li><a href="./index.htm">首页</a> |</li>
-		<li><a href="./蔬菜分类.htm">定制套餐</a> |</li>
+		<li><a href="${ pageContext.request.contextPath }/index.action">首页</a> |</li>
+		<s:iterator var ="c" value="#session.cList">
+<!-- 					根据一级分类获取其下二级分类数据   并显示一级分类下所有商品并分页呈现 -->
+					<li><a href=" ${ pageContext.request.contextPath }/product_findByCid.action?cid=<s:property value="#c.cid"/>&page=1 "> <s:property value="#c.cname"/></a> |</li>	
+		</s:iterator>
 	</ul>
 </div>

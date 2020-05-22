@@ -2,8 +2,9 @@ package cn.itcast.shop.adminuser.action;
 
 import org.apache.struts2.ServletActionContext;
 
+
 import cn.itcast.shop.adminuser.service.AdminUserService;
-import cn.itcast.shop.adminuser.vo.AdminUser;
+import cn.itcast.shop.adminuser.pojo.AdminUser;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;

@@ -129,7 +129,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>  {
 			//激活成功
 			existUser.setState(1);
 			userService.updateUser(existUser);
-			this.addActionMessage("激活失败,可以登录系统了");
+			this.addActionMessage("激活成功啦啦啦啦,可以登录系统了");
 		}
 		
 		return "msg";

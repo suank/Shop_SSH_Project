@@ -2,8 +2,9 @@ package cn.itcast.shop.adminuser.service;
 
 import org.springframework.transaction.annotation.Transactional;
 
+
 import cn.itcast.shop.adminuser.dao.AdminUserDao;
-import cn.itcast.shop.adminuser.vo.AdminUser;
+import cn.itcast.shop.adminuser.pojo.AdminUser;
 @Transactional
 public class AdminUserService {
 	// 注入Dao

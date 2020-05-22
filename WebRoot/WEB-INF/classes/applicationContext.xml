@@ -28,11 +28,10 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!-- Action的配置 ===========================--> 
-
-
-
 	<!-- 首页访问的Action -->
 	<bean id="indexAction" class="cn.itcast.shop.index.action.IndexAction" scope="prototype">
+		<property name="categoryService" ref="categoryService"></property>
+		<property name="productService" ref="productService"></property>
 	</bean>
 	
 	<!-- user的Action -->
@@ -40,24 +39,63 @@
 		<property name="userService" ref="userService"></property>
 	</bean>
 	
-	<!-- 配置后台登录的Action -->
-	<bean id="adminUserAction" class="cn.itcast.shop.adminuser.action.AdminUserAction" scope="prototype">
-		<property name="adminUserService" ref="adminUserService"/>
-	</bean>
 	<bean id="userService" class="cn.itcast.shop.user.service.UserService" scope="prototype">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
 	
-	<!--后台登录的server-->
-	<bean id="adminUserService" class="cn.itcast.shop.adminuser.service.AdminUserService">
-		<property name="adminUserDao" ref="adminUserDao"/>
-	</bean>
 	<bean id="userDao" class="cn.itcast.shop.user.dao.UserDao" scope="prototype">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-	<!--后台登录的dao-->
-	<bean id="adminUserDao" class="cn.itcast.shop.adminuser.dao.AdminUserDao">
+	
+	<!-- Category的Action -->
+	<bean id="categoryAction" class="cn.itcast.shop.category.action.CategoryAction" scope="prototype">
+		<property name="categoryService" ref="categoryService"></property>
+	</bean>
+	
+	<bean id="categoryService" class="cn.itcast.shop.category.service.CategoryService" scope="prototype">
+		<property name="categoryDao" ref="categoryDao"></property>
+	</bean>
+	
+	<bean id="categoryDao" class="cn.itcast.shop.category.dao.CategoryDao" scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	
+	<!-- Product的Action -->
+	<bean id="productAction" class="cn.itcast.shop.product.action.ProductAction" scope="prototype">
+		<property name="productService" ref="productService"></property>
+		<property name="categoryService" ref="categoryService"></property>
+	</bean>
+	
+	<bean id="productService" class="cn.itcast.shop.product.service.ProductService" scope="prototype">
+		<property name="productDao" ref="productDao"></property>
+	</bean>
+	
+	<bean id="productDao" class="cn.itcast.shop.product.dao.ProductDao" scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<!-- order的Action -->
+	<bean id="orderAction" class="cn.itcast.shop.order.action.OrderAction" scope="prototype">
+		<property name="orderService" ref="orderService"></property>
+	</bean>
+	
+	<bean id="orderService" class="cn.itcast.shop.order.service.OrderService" scope="prototype">
+		<property name="orderDao" ref="orderDao"></property>
+	</bean>
+	
+	<bean id="orderDao" class="cn.itcast.shop.order.dao.OrderDao" scope="prototype">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+    <!-- adminLoging的Action -->
+	<bean id="adminUserAction" class="cn.itcast.shop.adminuser.action.AdminUserAction" scope="prototype">
+		<property name="adminUserService" ref="adminUserService"/>
+	</bean>
+	<bean id="adminUserService" class="cn.itcast.shop.adminuser.service.AdminUserService">
+		<property name="adminUserDao" ref="adminUserDao"/>
+	</bean>
+    <bean id="adminUserDao" class="cn.itcast.shop.adminuser.dao.AdminUserDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 </beans>

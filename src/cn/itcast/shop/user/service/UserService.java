@@ -1,5 +1,6 @@
 package cn.itcast.shop.user.service;
 
+import java.net.UnknownHostException;
 import java.util.HashSet;
 
 import javax.mail.MessagingException;

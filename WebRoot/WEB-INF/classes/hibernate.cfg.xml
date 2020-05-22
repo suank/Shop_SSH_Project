@@ -19,14 +19,14 @@
 		<property name="hibernate.format_sql">true</property>
 		<!-- 自动创建mysql表 -->
 		<property name="hibernate.hbm2ddl.auto">update</property>
-
 <!-- 		解决只读权限问题 -->
 <!-- 		<property name="checkWriteOperations" value="false" />    -->
-
 		<property name="connection.autocommit">true </property>
 		<!-- 映射关系配置 -->
 		<mapping resource="cn/itcast/shop/user/pojo/User.hbm.xml" />
-
+		<mapping resource="cn/itcast/shop/category/pojo/Category.hbm.xml" />
+		<mapping resource="cn/itcast/shop/categorysecond/pojo/CategorySecond.hbm.xml" />
+		<mapping resource="cn/itcast/shop/product/pojo/Product.hbm.xml" />
 	</session-factory>
 
 

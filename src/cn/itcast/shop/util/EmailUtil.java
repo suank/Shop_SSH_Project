@@ -1,5 +1,7 @@
 package cn.itcast.shop.util;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -34,7 +36,7 @@ public class EmailUtil {
 	//收件人
 	public static String reciver = "917976723@qq.com";
 	
-	public static void  sendEmail(String to ,String code) throws AddressException, MessagingException {
+	public static void   sendEmail(String to ,String code) throws AddressException, MessagingException {
 		//获取连接对象
 		Properties props  =new Properties(); 
 		props.setProperty("mail.transport.protocol", "smtp");
@@ -63,14 +65,17 @@ public class EmailUtil {
 		//设定主题
 		message.setSubject("激活邮件测试");
 		//设定正文
-		message.setContent("<h1>激活邮件!点下面链接完成激活操作!</h1><h3><a href='http://localhost:8080/shop/user_active.action?code="+code+"'>http://192.168.0.105:8080/shop/user_active.action?code="+code+"</a></h3>","text/html;charset=UTF-8");
+		//		InetAddress localHost = InetAddress.getLocalHost();
+		//		System.out.println("-------"+localHost);
 		
+		message.setContent("<h1>激活邮件!点下面链接完成激活操作!</h1> <h3><a href='http://localHost:8080/shop/user_active.action?code="+code+"'> 激活 "+"</a></h3>","text/html;charset=UTF-8");
 		//发送邮件
 		Transport.send(message);
 	}
+
 	
 	@Test
-	public void testMail() throws AddressException, MessagingException {
+	public void testMail() throws AddressException, MessagingException, UnknownHostException {
 		sendEmail(reciver,"11111");
 	}
 	

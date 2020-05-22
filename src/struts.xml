@@ -8,6 +8,7 @@
 	<constant name="struts.devMode" value="false" />
 
 	<package name="shop" extends="struts-default" namespace="/">
+
 		<global-results>
 			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
 		</global-results>
@@ -22,19 +23,41 @@
 		<action name="user_*" class="userAction" method="{1}">
 			<result name="loginPage">/WEB-INF/jsp/loginPage.jsp</result>
 			<result name="registPage">/WEB-INF/jsp/registPage.jsp</result>
-			<result name="loginSuccess" type="redirectAction" >index</result>
-			<result name="quit" type="redirectAction" >index</result>
+			<result name="loginSuccess" type="redirectAction">index</result>
+			<result name="quit" type="redirectAction">index</result>
 		</action>
 		
+		
+		<!-- 配置商品模块的Action -->
+		<action name="product_*" class="productAction" method="{1}">
+			<result name="findByPid">/WEB-INF/jsp/product.jsp</result>
+<!-- 			显示分类下所有的商品 -->
+			<result name="findByCid">/WEB-INF/jsp/productList.jsp</result> 
+		</action>
+
+
+		<!-- 配置订单模块的order_* -->
+		<action name="order_*" class="orderAction" method="{1}">
+			<result name="saveOrder">/WEB-INF/jsp/order.jsp</result>
+			<result name="findByUid">/WEB-INF/jsp/orderList.jsp</result>
+			<result name="findByOid">/WEB-INF/jsp/order.jsp</result>
+			<result name="updateStateSuccess" type="redirectAction">order_findByUid.action?page=1
+			</result>
+		</action>
+
 		<!-- 后台登录Action -->
 		<action name="adminUser_*" class="adminUserAction" method="{1}">
-			<result name="loginFail">/admin/index.jsp</result>
-			<result name="loginSuccess" type="redirectAction">/admin/home.jsp</result>
+			<result name="loginFail">admin/index.jsp</result>
+			<result name="loginSuccess" type="redirect">admin/home.jsp</result>
+			<!-- 
 			<interceptor-ref name="privilegeInterceptor">
-			<!-- 拦截login -->
 				<param name="excludeMethods">login</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack"/>
+			 -->
 		</action>
+
+
+
 	</package>
 </struts>
