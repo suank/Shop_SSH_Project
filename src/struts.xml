@@ -27,6 +27,14 @@
 		</action>
 		
 		<!-- 配置购物车模块的Action -->
-		
+		<!-- 后台登录Action -->
+		<action name="adminUser_*" class="adminUserAction" method="{1}">
+			<result name="loginFail">/admin/index.jsp</result>
+			<result name="loginSuccess" type="redirect">/admin/home.jsp</result>
+			<interceptor-ref name="privilegeInterceptor">
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
 	</package>
 </struts>
