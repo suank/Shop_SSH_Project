@@ -48,7 +48,7 @@
 		<property name="userDao" ref="userDao"></property>
 	</bean>
 	
-<!--后台登录的server-->
+	<!--后台登录的server-->
 	<bean id="adminUserService" class="cn.itcast.shop.adminuser.service.AdminUserService">
 		<property name="adminUserDao" ref="adminUserDao"/>
 	</bean>
@@ -56,7 +56,7 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 	
-<!--后台登录的dao-->
+	<!--后台登录的dao-->
 	<bean id="adminUserDao" class="cn.itcast.shop.adminuser.dao.AdminUserDao">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
