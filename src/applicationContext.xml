@@ -102,10 +102,5 @@
     <bean id="userAdminAction" class="cn.itcast.shop.user.adminaction.UserAdminAction" scope="prototype">
 		<property name="userService" ref="userService"/>
 	</bean>
-    <bean id="adminUserService" class="cn.itcast.shop.adminuser.service.AdminUserService">
-		<property name="adminUserDao" ref="adminUserDao"/>
-	</bean>
-    <bean id="adminUserDao" class="cn.itcast.shop.adminuser.dao.AdminUserDao">
-		<property name="sessionFactory" ref="sessionFactory"/>
-	</bean>
+
 </beans>
