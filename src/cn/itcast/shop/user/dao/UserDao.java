@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import cn.itcast.shop.user.pojo.User;
+import cn.itcast.shop.util.PageHibernateCallback;
 public class UserDao extends HibernateDaoSupport{
 
 	//按用户名来查找用户
@@ -62,6 +63,21 @@ public class UserDao extends HibernateDaoSupport{
 			return userList.get(0);
 		}
 		return null;
+	}
+	public int findCount() {
+		String hql = "select count(*) from User";
+		List<Long> list = this.getHibernateTemplate().find(hql);
+		if (list != null && list.size() > 0) {
+			return list.get(0).intValue();
+		}
+		return 0;
+	}
+
+	public List<User> findByPage(int begin, int limit) {
+		String hql = "from User";
+		List<User> list = this.getHibernateTemplate().execute(
+				new PageHibernateCallback<User>(hql, null, begin, limit));
+		return list;
 	}
 	
 }

@@ -33,6 +33,11 @@ public class UserAdminAction extends ActionSupport implements ModelDriven<User>{
 	public void setPage(Integer page) {
 		this.page = page;
 	}
-
+	// 后台查询所有用户的方法带分页:
+	public String findAll(){
+		PageBean<User> pageBean = userService.findByPage(page);
+		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+		return "findAll";
+	}
 
 }

@@ -2,6 +2,7 @@ package cn.itcast.shop.user.service;
 
 import java.net.UnknownHostException;
 import java.util.HashSet;
+import java.util.List;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.itcast.shop.user.dao.UserDao;
 import cn.itcast.shop.user.pojo.User;
 import cn.itcast.shop.util.EmailUtil;
+import cn.itcast.shop.util.PageBean;
 import cn.itcast.shop.util.UuidUtil;
 //@Transactional
 public class UserService {
@@ -55,5 +57,32 @@ public class UserService {
 	//登录
 	public User login(User user) {
 		return userDao.login(user);
+	}
+	// 业务层用户查询所有
+	public PageBean<User> findByPage(Integer page) {
+		PageBean<User> pageBean = new PageBean<User>();
+		// 设置当前页数:
+		pageBean.setPage(page);
+		// 设置每页显示记录数:
+		// 显示5个
+		int limit = 5;
+		pageBean.setLimit(limit);
+		// 设置总记录数:
+		int totalCount = 0;
+		totalCount = userDao.findCount();
+		pageBean.setTotalCount(totalCount);
+		// 设置总页数
+		int totalPage = 0;
+		if(totalCount % limit == 0){
+			totalPage = totalCount / limit;
+		}else{
+			totalPage = totalCount / limit + 1;
+		}
+		pageBean.setTotalPage(totalPage);
+		// 设置每页显示数据集合:
+		int begin = (page - 1)*limit;
+		List<User> list = userDao.findByPage(begin,limit);
+		pageBean.setList(list);
+		return pageBean;
 	}
 }
