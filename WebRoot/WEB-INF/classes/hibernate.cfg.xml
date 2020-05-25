@@ -27,6 +27,7 @@
 		<mapping resource="cn/itcast/shop/category/pojo/Category.hbm.xml" />
 		<mapping resource="cn/itcast/shop/categorysecond/pojo/CategorySecond.hbm.xml" />
 		<mapping resource="cn/itcast/shop/product/pojo/Product.hbm.xml" />
+		<mapping resource="cn/itcast/shop/adminuser/pojo/AdminUser.hbm.xml" />
 	</session-factory>
 
 
