@@ -85,4 +85,12 @@ public class UserService {
 		pageBean.setList(list);
 		return pageBean;
 	}
+	public User findByUid(Integer uid) {
+		return userDao.findByUid(uid);
+	}
+
+
+	public void delete(User existUser) {
+		userDao.delete(existUser);
+	}
 }

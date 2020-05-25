@@ -39,5 +39,24 @@ public class UserAdminAction extends ActionSupport implements ModelDriven<User>{
 		ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 		return "findAll";
 	}
-
+	
+	// 后台用户的删除
+	public String delete(){
+		User existUser = userService.findByUid(user.getUid());
+		userService.delete(existUser);
+		System.out.println(existUser);
+		return "deleteSuccess";
+	}
+	
+	// 后台用户的编辑
+	public String edit(){
+		user = userService.findByUid(user.getUid());
+		return "editSuccess";
+	}
+	
+	// 后台用户的修改:
+	public String update(){
+		userService.updateUser(user);
+		return "updateSuccess";
+	}
 }

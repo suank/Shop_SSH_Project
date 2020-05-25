@@ -79,5 +79,13 @@ public class UserDao extends HibernateDaoSupport{
 				new PageHibernateCallback<User>(hql, null, begin, limit));
 		return list;
 	}
-	
+
+	public User findByUid(Integer uid) {
+		return this.getHibernateTemplate().get(User.class, uid);
+	}
+
+	public void delete(User existUser) {
+		System.out.println(existUser);
+		this.getHibernateTemplate().delete(existUser);
+	}
 }
